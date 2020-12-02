@@ -2,3 +2,79 @@
 @import "reset";
 @import "base";
 @import "header";
+
+
+.text {
+  font-size: 20px;
+  div {
+    .red {
+      color:red;
+    }
+    &.red {
+      color: red;
+    }
+  }
+}
+
+//ex1
+@mixin text {
+  font-family: serif;
+  color: red;
+  font-size: 20px;
+  line-height: 1.5;
+}
+
+.article {
+  text-align: justify;
+  @include text;
+}
+
+//ex2
+@mixin position($type, $top, $right, $bottom, $left) {
+  position: $type;
+  top: $top;
+  right: $right;
+  bottom: $bottom;
+  left: $left;
+}
+
+.modal {
+  background-color: rgba(0, 0, 0, 0.5);
+  @include position(absolute, auto, 10px, 10px, auto);
+}
+
+//ex3 
+
+@mixin margin($vertical: 20px, $horizontal: 40px) {
+  margin: $vertical $horizontal;
+}
+
+div {
+  @include margin(20px);
+}
+
+
+//ex4
+
+@mixin title($font-size: 2rem, $color: red) {
+  font-size: $font-size;
+  color: $color;
+}
+
+div {
+  @include title($color: blue);
+}
+
+//ex5
+
+@mixin title2($font-size: 2rem) {
+  font-size: $font-size;
+  @content;
+}
+
+h2 {
+  @include title2(1.5rem) {
+    line-height: 2;
+    color: yellow;
+  }
+}

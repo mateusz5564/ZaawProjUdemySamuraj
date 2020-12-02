@@ -31,4 +31,48 @@ header h1 strong {
 header h2 {
   font-size: 32px;
 }
+
+.text {
+  font-size: 20px;
+}
+
+.text div .red {
+  color: red;
+}
+
+.text div.red {
+  color: red;
+}
+
+.article {
+  text-align: justify;
+  font-family: serif;
+  color: red;
+  font-size: 20px;
+  line-height: 1.5;
+}
+
+.modal {
+  background-color: rgba(0, 0, 0, 0.5);
+  position: absolute;
+  top: auto;
+  right: 10px;
+  bottom: 10px;
+  left: auto;
+}
+
+div {
+  margin: 20px 40px;
+}
+
+div {
+  font-size: 2rem;
+  color: blue;
+}
+
+h2 {
+  font-size: 1.5rem;
+  line-height: 2;
+  color: yellow;
+}
 /*# sourceMappingURL=style.css.map */
