@@ -144,3 +144,12 @@ $class-font-small: sm;
 p.#{$class-font-small} {
   font-size: 10px;
 }
+
+
+//COLORS
+
+//ex1
+
+p {
+  color: mix($color: yellow, $color: blue)
+}

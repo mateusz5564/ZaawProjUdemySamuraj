@@ -117,4 +117,8 @@ ul {
 p.sm {
   font-size: 10px;
 }
+
+p {
+  color: mix;
+}
 /*# sourceMappingURL=style.css.map */
