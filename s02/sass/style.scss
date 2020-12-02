@@ -16,6 +16,8 @@
   }
 }
 
+//@MIXIN
+
 //ex1
 @mixin text {
   font-family: serif;
@@ -77,4 +79,68 @@ h2 {
     line-height: 2;
     color: yellow;
   }
+}
+
+
+//@EXTEND
+
+//ex1
+
+.text {
+  font-size: 20px;
+  font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+  color: darkblue;
+}
+
+.article__text {
+  @extend .text;
+}
+
+.footer__copyright {
+  @extend .text;
+  font-size: 22px;
+}
+
+
+//ex2
+
+%flex-list {
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+ul {
+  @extend %flex-list;
+  list-style: none;
+}
+
+.news {
+  border: 1px solid black;
+  flex-direction: column;
+  @extend %flex-list;
+}
+
+
+//CALCULATIONS
+
+//ex1
+
+$page-margin: 20px;
+$margin-increase: 2;
+
+.menu__item {
+  margin: $page-margin + 20px/2 * $margin-increase;
+}
+
+//INTERPOLATION
+
+//ex1 
+
+$class-font-small: sm;
+
+p.#{$class-font-small} {
+  font-size: 10px;
 }

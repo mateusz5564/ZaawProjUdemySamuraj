@@ -32,15 +32,15 @@ header h2 {
   font-size: 32px;
 }
 
-.text {
+.text, .article__text, .footer__copyright {
   font-size: 20px;
 }
 
-.text div .red {
+.text div .red, .article__text div .red, .footer__copyright div .red {
   color: red;
 }
 
-.text div.red {
+.text div.red, .article__text div.red, .footer__copyright div.red {
   color: red;
 }
 
@@ -74,5 +74,47 @@ h2 {
   font-size: 1.5rem;
   line-height: 2;
   color: yellow;
+}
+
+.text, .article__text, .footer__copyright {
+  font-size: 20px;
+  font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+  color: darkblue;
+}
+
+.footer__copyright {
+  font-size: 22px;
+}
+
+ul, .news {
+  display: -ms-flexbox;
+  display: -webkit-box;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+ul {
+  list-style: none;
+}
+
+.news {
+  border: 1px solid black;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.menu__item {
+  margin: 40px;
+}
+
+p.sm {
+  font-size: 10px;
 }
 /*# sourceMappingURL=style.css.map */
