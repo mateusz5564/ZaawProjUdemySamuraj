@@ -151,5 +151,41 @@ p.#{$class-font-small} {
 //ex1
 
 p {
-  color: mix($color: yellow, $color: blue)
+  color: mix(green,yellow)
+}
+
+
+//FUNCTIONS
+
+//ex1
+
+$border-width: 5px;
+
+@function double-border() {
+  @return $border-width * 2;
+}
+
+div {
+  border: double-border() solid red;
+}
+
+//ex2
+
+@function border-multiplication($multiplier: null, $width: $border-width){
+  @if($multiplier == null) {
+    @return $width;
+  }
+  @else if($multiplier == 0) {
+    @return 0;
+  }
+  @else if(type-of($multiplier) == number and type-of($width) == number and $multiplier > 0) {
+    @return ($width * $multiplier);
+  }
+  @else {
+    @return null;
+  }
+}
+
+div.test {
+  border: border-multiplication(2, 8px) solid red;
 }

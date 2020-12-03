@@ -119,6 +119,14 @@ p.sm {
 }
 
 p {
-  color: mix;
+  color: #80c000;
+}
+
+div {
+  border: 10px solid red;
+}
+
+div.test {
+  border: 16px solid red;
 }
 /*# sourceMappingURL=style.css.map */
