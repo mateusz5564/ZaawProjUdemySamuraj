@@ -129,4 +129,10 @@ div {
 div.test {
   border: 16px solid red;
 }
+
+@media (min-width: 720px) {
+  div.mqr {
+    font-size: 30px;
+  }
+}
 /*# sourceMappingURL=style.css.map */

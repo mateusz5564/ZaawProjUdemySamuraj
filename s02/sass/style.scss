@@ -189,3 +189,33 @@ div {
 div.test {
   border: border-multiplication(2, 8px) solid red;
 }
+
+
+// MEDIA QUERIES
+
+//ex1
+
+$breakpoints: (
+  small: (min-width: 320px),
+  medium: (min-width: 720px),
+  large: (min-width: 1024px),
+);
+
+@mixin mq($breakpoint) {
+  $size: map-get($breakpoints, $breakpoint);
+  @if($size) {
+    @media #{$size} {
+      @content;
+    }
+  }
+  @else {
+    @error '"#{$breakpoint}" - doesnt exist'
+  }
+};
+
+
+div.mqr {
+  @include mq(medium) {
+    font-size: 30px;
+  }
+}
