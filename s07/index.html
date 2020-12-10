@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <title>Document</title>
+</head>
+<body>
+  <main class="main">
+   <form class="form">
+      <label class="form__gender-label" for="gender">Wybierz płeć</label>
+      <select class="form__gender-select" id="gender">
+        <option value="">Wszyscy</option>
+        <option value="male">Mężczyzni</option>
+        <option value="female">Kobiety</option>
+      </select>
+      <label class="form__number-label" for="number">Liczba osób</label>
+      <input class="form__number-input" id="number" type="text">
+      <button>Pobierz</button>
+   </form>
+   <section class="results"></section>
+  </main>
+
+  <script src="main.js"></script>
+</body>
+</html>
