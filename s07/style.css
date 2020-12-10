@@ -8,10 +8,11 @@
 }
 
 .results {
-  background-color: grey;
+  background-color: rgb(189, 189, 189);
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   margin-top: 30px;
+  gap: 20px;
 }
 
 .result {
