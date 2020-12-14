@@ -16,6 +16,10 @@ html {
   height: 100vh;
 }
 
+.scroller__img {
+  max-width: 100%;
+}
+
 .scroller__text {
   max-width: 70%;
   margin: 1rem auto;
