@@ -1,3 +1,22 @@
 * {
-  margin: 0 auto;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  overflow: hidden;
+}
+
+.scroller {
+  text-align: center;
+}
+
+.scroller__section {
+  height: 100vh;
+}
+
+.scroller__text {
+  max-width: 70%;
+  margin: 1rem auto;
 }
