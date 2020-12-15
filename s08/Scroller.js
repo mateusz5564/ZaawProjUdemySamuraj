@@ -4,8 +4,7 @@ class Scroller {
     this.sections = [...document.querySelectorAll(".scroller__section")];
     this.currentSectionIndex = this.sections.findIndex(this.isScrolledIntoView);
     this.isThrottled = false;
-
-    this.isScrolledIntoView(this.sections[2])
+    this.drawNavigation();
   }
 
   listenScroll = (e) => {
@@ -16,11 +15,12 @@ class Scroller {
     const direction = e.deltaY > 0 ? 1 : -1;
 
     this.scroll(direction);
-  }
+  };
 
   scroll = (direction) => {
     if (direction === 1) {
-      const isLastSection = this.currentSectionIndex === this.sections.length - 1;
+      const isLastSection =
+        this.currentSectionIndex === this.sections.length - 1;
       if (isLastSection) return;
     } else if (direction === -1) {
       const isFirstSection = this.currentSectionIndex === 0;
@@ -29,17 +29,50 @@ class Scroller {
     this.currentSectionIndex += direction;
 
     this.scrollToCurrentSection();
-  }
+  };
 
   scrollToCurrentSection = () => {
-    this.sections[this.currentSectionIndex].scrollIntoView({ behavior: "smooth" });
-  }
+    this.selectActiveNavItem();
+    this.sections[this.currentSectionIndex].scrollIntoView({
+      behavior: "smooth",
+    });
+  };
 
   isScrolledIntoView(el) {
     const rect = el.getBoundingClientRect();
     const elTop = rect.top;
-    console.log(this)
 
     return elTop >= 0;
   }
+
+  drawNavigation = () => {
+    this.navigationContainer = document.createElement("aside");
+    this.navigationContainer.setAttribute("class", "scroller__navigation");
+    const list = document.createElement("ul");
+    list.setAttribute("class", "scroller__nav-list");
+    this.sections.forEach((el, index) => {
+      const listItem = document.createElement("li");
+      listItem.setAttribute("class", "scroller__nav-item");
+      listItem.addEventListener("click", (e) => {
+        this.currentSectionIndex = index;
+        this.scrollToCurrentSection();
+      });
+
+      list.appendChild(listItem);
+    });
+    this.navigationContainer.appendChild(list);
+    document.body.appendChild(this.navigationContainer);
+    this.selectActiveNavItem();
+  };
+
+  selectActiveNavItem = () => {
+    const navigationItems = this.navigationContainer.querySelectorAll(
+      ".scroller__nav-item"
+    );
+    navigationItems.forEach((el, index) => {
+      index === this.currentSectionIndex
+        ? el.classList.add("scroller__nav-item--active")
+        : el.classList.remove("scroller__nav-item--active");
+    });
+  };
 }

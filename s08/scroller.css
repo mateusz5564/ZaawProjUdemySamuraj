@@ -1,0 +1,40 @@
+.scroller {
+  text-align: center;
+}
+
+.scroller__section {
+  height: 100vh;
+}
+
+.scroller__img {
+  max-width: 100%;
+}
+
+.scroller__text {
+  max-width: 70%;
+  margin: 1rem auto;
+}
+
+.scroller__navigation {
+  position: fixed;
+  right: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.scroller__nav-list {
+  list-style: none;
+}
+
+.scroller__nav-item {
+  width: 15px;
+  height: 15px;
+  margin: 5px 0;
+  border-radius: 50%;
+  background-color: rgba(0, 0, 255, 0.5);
+  cursor: pointer;
+}
+
+.scroller__nav-item--active {
+  background-color: blue;
+}
