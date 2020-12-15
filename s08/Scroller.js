@@ -17,7 +17,7 @@ class Scroller {
     this.scroll(direction);
   };
 
-  scroll = (direction) => {
+  scroll(direction){
     if (direction === 1) {
       const isLastSection =
         this.currentSectionIndex === this.sections.length - 1;
@@ -31,7 +31,7 @@ class Scroller {
     this.scrollToCurrentSection();
   };
 
-  scrollToCurrentSection = () => {
+  scrollToCurrentSection(){
     this.selectActiveNavItem();
     this.sections[this.currentSectionIndex].scrollIntoView({
       behavior: "smooth",
@@ -40,16 +40,15 @@ class Scroller {
 
   isScrolledIntoView(el) {
     const rect = el.getBoundingClientRect();
-    const elTop = rect.top;
-
-    return elTop >= 0;
+    return rect.top >= 0;
   }
 
-  drawNavigation = () => {
+  drawNavigation(){
     this.navigationContainer = document.createElement("aside");
     this.navigationContainer.setAttribute("class", "scroller__navigation");
     const list = document.createElement("ul");
     list.setAttribute("class", "scroller__nav-list");
+
     this.sections.forEach((el, index) => {
       const listItem = document.createElement("li");
       listItem.setAttribute("class", "scroller__nav-item");
@@ -60,12 +59,13 @@ class Scroller {
 
       list.appendChild(listItem);
     });
+    
     this.navigationContainer.appendChild(list);
     document.body.appendChild(this.navigationContainer);
     this.selectActiveNavItem();
   };
 
-  selectActiveNavItem = () => {
+  selectActiveNavItem(){
     const navigationItems = this.navigationContainer.querySelectorAll(
       ".scroller__nav-item"
     );
