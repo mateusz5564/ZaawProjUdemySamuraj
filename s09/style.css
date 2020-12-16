@@ -1,0 +1,49 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.animation {
+  position: relative;
+  padding: 50px;
+  height: 100vh;
+  background-color: skyblue;
+  text-align: center;
+}
+
+.animation__img {
+  position: absolute;
+  max-width: 30%;
+}
+
+.animation__img--cloud:nth-child(1) {
+  left: 22%;
+  top: 2%;
+}
+.animation__img--cloud:nth-child(2) {
+  left: 32%;
+  top: 12%;
+  z-index: 1;
+}
+.animation__img--cloud:nth-child(3) {
+  left: 66%;
+  top: 15%;
+  z-index: 1;
+}
+.animation__img--cloud:nth-child(4) {
+  left: 68%;
+  top: 3%;
+}
+.animation__img--cloud:nth-child(5) {
+  left: 50%;
+  top: 0%;
+  z-index: 1;
+}
+.animation__img--cloud:nth-child(6) {
+  left: 47%;
+  top: 22%;
+}
+
+.animation__img--balloon {
+}
