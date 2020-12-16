@@ -14,7 +14,7 @@
 
 .animation__img {
   position: absolute;
-  max-width: 30%;
+  max-width: 20%;
 }
 
 .animation__img--cloud:nth-child(1) {
@@ -43,7 +43,4 @@
 .animation__img--cloud:nth-child(6) {
   left: 47%;
   top: 22%;
-}
-
-.animation__img--balloon {
 }
