@@ -1,0 +1,1 @@
+(()=>{"use strict";console.log("works after boundling"),document.body.textContent="after boulding in browser"})();
