@@ -5,7 +5,10 @@
   "main": "index.js",
   "scripts": {
     "prod": "webpack --mode production",
-    "dev": "webpack --mode development"
+    "dev": "webpack --mode development",
+    "test1": "webpack --entry ./src/app.js -o build/main.js --mode production",
+    "test2": "webpack --output-path bundles",
+    "test3": "webpack --entry ./src/app.js --mode none"
   },
   "keywords": [],
   "author": "",
