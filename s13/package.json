@@ -4,10 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "webpack": "webpack",
-    "test1": "webpack --entry ./src/app.js -o build/main.js",
-    "test2": "webpack --output-path bundles",
-    "test3": "webpack --entry ./src/app.js"
+    "prod": "webpack --config ./config/webpack.config.prod.js",
+    "dev": "webpack --config ./config/webpack.config.js"
   },
   "keywords": [],
   "author": "",
