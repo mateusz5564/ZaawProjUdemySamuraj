@@ -4,11 +4,10 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "prod": "webpack --mode production",
-    "dev": "webpack --mode development",
-    "test1": "webpack --entry ./src/app.js -o build/main.js --mode production",
+    "webpack": "webpack",
+    "test1": "webpack --entry ./src/app.js -o build/main.js",
     "test2": "webpack --output-path bundles",
-    "test3": "webpack --entry ./src/app.js --mode none"
+    "test3": "webpack --entry ./src/app.js"
   },
   "keywords": [],
   "author": "",
