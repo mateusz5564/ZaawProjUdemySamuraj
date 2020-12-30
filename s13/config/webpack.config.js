@@ -5,6 +5,9 @@ module.exports = {
   entry: "./src/index.js",
   output: {
     filename: "index.js",
-    path: path.resolve(__dirname, '../', 'build'),
+    path: path.resolve(__dirname, "../", "build"),
+  },
+  module: {
+    rules: [{ test: /\.txt$/, use: "raw-loader" }],
   },
 };
