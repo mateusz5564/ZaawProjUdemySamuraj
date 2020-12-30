@@ -21,4 +21,9 @@ module.exports = {
       template: "src/template.html"
     }),
   ],
+  devServer: {
+    open: true,
+    contentBase: path.resolve(__dirname, '../', 'public'),
+    port: 5001
+  }
 };
