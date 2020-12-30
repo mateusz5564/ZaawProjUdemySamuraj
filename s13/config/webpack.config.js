@@ -18,7 +18,7 @@ module.exports = {
   plugins: [
     new CleanWebpackPlugin(),
     new HTMLWebpackPlugin({
-      template: "src/template.html"
+      template: "src/templates/template.html"
     }),
   ],
   devServer: {

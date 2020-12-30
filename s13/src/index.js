@@ -1,5 +1,5 @@
-import { message, messageDOM } from "./message";
-import helloworld from "./helloworld.txt"
+import { message, messageDOM } from "./utils/message";
+import helloworld from "./data/helloworld.txt"
 
 message("works after boundling");
 messageDOM(helloworld);
