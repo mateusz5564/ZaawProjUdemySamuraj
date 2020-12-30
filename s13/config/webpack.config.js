@@ -1,6 +1,6 @@
 const path = require("path");
 const { CleanWebpackPlugin } = require("clean-webpack-plugin");
-const { normalize } = require("path");
+const HTMLWebpackPlugin = require("html-webpack-plugin");
 
 module.exports = {
   stats: {
@@ -16,6 +16,9 @@ module.exports = {
     rules: [{ test: /\.txt$/, use: "raw-loader" }],
   },
   plugins: [
-    new CleanWebpackPlugin()
+    new CleanWebpackPlugin(),
+    new HTMLWebpackPlugin({
+      template: "src/template.html"
+    }),
   ],
 };

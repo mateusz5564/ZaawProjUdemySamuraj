@@ -3,5 +3,5 @@ export const message = (info) => {
 }
 
 export const messageDOM = (info) => {
-  document.body.textContent = info;
+  document.querySelector('div').textContent = info;
 }
