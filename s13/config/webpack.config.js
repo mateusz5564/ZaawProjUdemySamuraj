@@ -13,17 +13,20 @@ module.exports = {
     path: path.resolve(__dirname, "../", "build"),
   },
   module: {
-    rules: [{ test: /\.txt$/, use: "raw-loader" }],
+    rules: [
+      { test: /\.txt$/, use: "raw-loader" },
+      { test: /\.css$/, use: ["style-loader", "css-loader"] },
+    ],
   },
   plugins: [
     new CleanWebpackPlugin(),
     new HTMLWebpackPlugin({
-      template: "src/templates/template.html"
+      template: "src/templates/template.html",
     }),
   ],
   devServer: {
     open: true,
-    contentBase: path.resolve(__dirname, '../', 'public'),
-    port: 5001
-  }
+    contentBase: path.resolve(__dirname, "../", "public"),
+    port: 5001,
+  },
 };
