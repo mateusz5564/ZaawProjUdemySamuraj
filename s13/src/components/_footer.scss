@@ -1,6 +1,8 @@
 $bg-color: white;
 
 footer {
-  background-color: indigo;
-  color: $bg-color;
+  background-color: $bg-color;
+  color: black;
+  background-image: url('../images/photo.jpg');
+  height: 200px;
 }

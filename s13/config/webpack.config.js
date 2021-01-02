@@ -1,7 +1,6 @@
 const path = require("path");
 const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 const HTMLWebpackPlugin = require("html-webpack-plugin");
-const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
 module.exports = {
   stats: {
@@ -18,11 +17,15 @@ module.exports = {
       { test: /\.txt$/, use: "raw-loader" },
       {
         test: /\.css$/,
-        use: [MiniCssExtractPlugin.loader, 'css-loader'],
+        use: 'css-loader',
       },
       {
         test: /\.scss$/,
-        use: [MiniCssExtractPlugin.loader, 'css-loader', 'sass-loader'],
+        use: ['style-loader', 'css-loader', 'sass-loader'],
+      },
+      {
+        test: /\.(jpg|png|svg|gif|jpeg)$/,
+        use: "file-loader",
       },
     ],
   },
@@ -30,9 +33,6 @@ module.exports = {
     new CleanWebpackPlugin(),
     new HTMLWebpackPlugin({
       template: "src/templates/template.html",
-    }),
-    new MiniCssExtractPlugin({
-      filename: "css/[name]-[contenthash:4].css",
     }),
   ],
   devServer: {
