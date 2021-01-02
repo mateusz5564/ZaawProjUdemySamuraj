@@ -35,11 +35,24 @@ module.exports = {
       },
       {
         test: /\.(jpg|png|svg|gif|jpeg)$/,
-        loader: "file-loader",
-        options: {
-          name: '[name]-[contenthash:4].[ext]',
-          outputPath: 'images'
-        }
+        use: [
+          {
+            loader: "file-loader",
+            options: {
+              name: "[name]-[contenthash:4].[ext]",
+              outputPath: "images",
+            },
+          },
+          {
+            loader: "image-webpack-loader",
+            options: {
+              mozjpeg: {
+                quality: 70,
+                progressive: true,
+              },
+            },
+          },
+        ],
       },
     ],
   },
