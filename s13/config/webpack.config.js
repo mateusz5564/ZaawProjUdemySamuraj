@@ -31,6 +31,12 @@ module.exports = {
         test: /\.js$/,
         loader: "babel-loader",
         exclude: /node_modules/,
+        options: {
+          presets: [
+            ["@babel/preset-env", { useBuiltIns: "usage", corejs: "2.0.0" }],
+          ],
+          plugins: ["@babel/plugin-proposal-class-properties"],
+        },
       },
     ],
   },
