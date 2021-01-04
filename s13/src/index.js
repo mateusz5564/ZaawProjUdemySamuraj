@@ -15,3 +15,5 @@ el1.addBgc('red');
 const el2 = new Creator();
 el2.addBgc('blue');
 const el3 = new Creator();
+el3.addBgc();
+el3.showColor();
