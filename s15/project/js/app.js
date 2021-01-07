@@ -43,6 +43,20 @@ class Doggo {
     });
   }
 
+  showImageWhenReady(imgSrc) {
+    this.imgEl.setAttribute("src", imgSrc);
+    this.backgroundEl.style.backgroundImage = `url("${imgSrc}")`;
+    this.hideLoading();
+  }
+
+  showLoading() {
+    this.spinnerEl.classList.add("spinner--visible");
+  }
+
+  hideLoading() {
+    this.spinnerEl.classList.remove("spinner--visible");
+  }
+
   addBreed(breed, subBreed) {
     const tile = document.createElement("div");
     tile.setAttribute("class", "tiles__tile");
@@ -58,29 +72,14 @@ class Doggo {
 
     tileContent.addEventListener("click", () => {
       this.showLoading();
-      this.getRandomImageByBreed(type).then((imgSrc) => {
-        this.imgEl.setAttribute("src", imgSrc);
-        this.hideLoading();
-      });
+      window.scrollTo(0, 0);
+      this.getRandomImageByBreed(type).then((imgSrc) => this.showImageWhenReady(imgSrc));
     });
-  }
-
-  showLoading() {
-    this.spinnerEl.classList.add('spinner--visible');
-  }
-
-  hideLoading() {
-    this.spinnerEl.classList.remove('spinner--visible');
   }
 
   init() {
     this.showLoading();
-    this.getRandomImage().then((imgSrc) => {
-      this.imgEl.setAttribute("src", imgSrc);
-      this.backgroundEl.style.backgroundImage = `url("${imgSrc}")`;
-      this.hideLoading();
-    });
-
+    this.getRandomImage().then((imgSrc) => this.showImageWhenReady(imgSrc));
     this.showAllBreeds();
   }
 }
