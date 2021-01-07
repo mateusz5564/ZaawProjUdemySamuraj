@@ -6,6 +6,7 @@ class Doggo {
     this.imgEl = document.querySelector(".featured-dog img");
     this.backgroundEl = document.querySelector(".featured-dog__background");
     this.tilesEl = document.querySelector(".tiles");
+    this.spinnerEl = document.querySelector(".spinner");
 
     this.init();
   }
@@ -30,7 +31,6 @@ class Doggo {
 
   showAllBreeds() {
     this.listBreeds().then((breeds) => {
-      console.log(breeds);
       for (const breed in breeds) {
         if (breeds[breed].length === 0) {
           this.addBreed(breed);
@@ -57,17 +57,28 @@ class Doggo {
     const type = subBreed ? `${breed}/${subBreed}` : `${breed}`;
 
     tileContent.addEventListener("click", () => {
-      this.getRandomImageByBreed(type)
-        .then(imgSrc => {
-            this.imgEl.setAttribute('src', imgSrc);
-        })
+      this.showLoading();
+      this.getRandomImageByBreed(type).then((imgSrc) => {
+        this.imgEl.setAttribute("src", imgSrc);
+        this.hideLoading();
+      });
     });
   }
 
+  showLoading() {
+    this.spinnerEl.classList.add('spinner--visible');
+  }
+
+  hideLoading() {
+    this.spinnerEl.classList.remove('spinner--visible');
+  }
+
   init() {
+    this.showLoading();
     this.getRandomImage().then((imgSrc) => {
       this.imgEl.setAttribute("src", imgSrc);
       this.backgroundEl.style.backgroundImage = `url("${imgSrc}")`;
+      this.hideLoading();
     });
 
     this.showAllBreeds();
