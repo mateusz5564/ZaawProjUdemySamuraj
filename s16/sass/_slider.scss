@@ -1,0 +1,38 @@
+@import "variables";
+
+.slider {
+  max-width: $image-width;
+  margin: 0 auto;
+
+  &__images-container {
+    position: relative;
+    padding-bottom: $image-height-propotion;
+  }
+
+  &__image-container {
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    overflow: hidden;
+
+    img {
+      top: 50%;
+      transform: translateY(-50%);
+      width: $image-width;
+      position: absolute;
+      -moz-user-select: none;
+      -webkit-user-select: none;
+      -ms-user-select: none;
+      user-select: none;
+    }
+  }
+
+  &__image-container--first {
+    width: 100%;
+  }
+
+  &__image-container--second {
+    width: 50%;
+  }
+}
