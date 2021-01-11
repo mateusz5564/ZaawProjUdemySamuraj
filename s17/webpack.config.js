@@ -34,7 +34,7 @@ let optimization = {
 module.exports = function (env, argv) {
     return {
         context: path.resolve(__dirname, ''),
-        mode: argv.mode,
+        mode: "production",
         devtool: 'source-map',
         entry: ['./js/main.js', './scss/style.scss'],
         output: {
