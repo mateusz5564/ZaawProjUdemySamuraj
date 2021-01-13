@@ -51,6 +51,16 @@ class Sky {
     })
   }
 
+  drawOverlayer() {
+      let gradient = this.ctx.createRadialGradient(this.width / 2, this.height / 2, 250, this.width / 2, this.height / 2, this.width / 2);
+
+      gradient.addColorStop(0, 'rgba(0, 0, 0 ,0)');
+      gradient.addColorStop(1, 'rgba(0, 0, 0, .75');
+
+      this.ctx.fillStyle = gradient;
+      this.ctx.fillRect(0, 0, this.width, this.height);
+  }
+
   clearCanvas() {
       this.ctx.fillStyle = "#000";
       this.ctx.fillRect(0, 0, this.width, this.height);
@@ -76,6 +86,8 @@ class Sky {
     this.clearCanvas();
     this.drawStars();
     this.updateStars();
+    this.drawOverlayer();
+
     window.requestAnimationFrame(() => this.draw());
   }
 
