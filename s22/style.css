@@ -23,7 +23,7 @@ body {
   bottom: 20%;
   left: 15%;
   background-color: cadetblue;
-  animation: fly-ball-x 2s cubic-bezier(.17,.67,.6,1), fly-ball-y 2s linear;
+  /* animation: fly-ball-x 2s cubic-bezier(.17,.67,.6,1), fly-ball-y 2s linear; */
 }
 
 .column {
@@ -43,7 +43,7 @@ body {
   height: 20px;
   background-color: burlywood;
   animation: spring 1.5s infinite alternate paused;
-  /* animation: release-spring .2s infinite linear; */
+  /* animation: release-spring .2s infinite linear paused; */
 }
 
 .panel {
