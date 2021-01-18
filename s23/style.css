@@ -1,0 +1,22 @@
+body {
+  display: flex;
+  margin: 0;
+  background-color: #111;
+  justify-content: space-evenly;
+  align-items: center;
+  min-height: 100vh;
+}
+
+.typing {
+  width: 50%;
+  font-family: "Robot Mono", sans-serif;
+  font-size: 40px;
+  color: greenyellow;
+  font-weight: 700;
+}
+
+.robot {
+  box-sizing: border-box;
+  width: 30%;
+  padding: 3%;
+}
