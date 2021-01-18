@@ -31,7 +31,7 @@ body {
   content: "> ";
 }
 
-.typing p:last-of-type::after {
+.typing p:nth-last-of-type(1)::after {
   content: "_";
   animation: cursor .3s infinite alternate;
 }
