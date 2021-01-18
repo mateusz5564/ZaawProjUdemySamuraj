@@ -20,3 +20,27 @@ body {
   width: 30%;
   padding: 3%;
 }
+
+.typing p {
+  margin: 0;
+  line-height: 150%;
+  text-shadow: 0 0 2px greenyellow;
+}
+
+.typing p::before {
+  content: "> ";
+}
+
+.typing p:last-of-type::after {
+  content: "_";
+  animation: cursor .3s infinite alternate;
+}
+
+@keyframes cursor {
+  0%, 30% {
+    opacity: 0;
+  }
+  70%, 100% {
+    opacity: 1;
+  }
+}
