@@ -10,36 +10,48 @@
 body {
   display: flex;
   height: 100vh;
-  flex-direction: column;
   margin: 0;
   overflow: hidden;
+  justify-content: center;
+  align-items: center;
 }
 
 div {
-  flex-grow: 1;
   font-family: monospace;
   font-size: 60px;
+  font-weight: bold;
   text-align: center;
   visibility: hidden;
+  position: absolute;
+  opacity: 0;
 }
 
   </style>
 </head>
 
 <body>
-  <div>AAA</div>
-  <div>BBB</div>
-  <div>CCC</div>
-  <div>DDD</div>
-  <div>EEE</div>
-  <div>FFF</div>
-  <div>GGG</div>
+  <div>G</div>
+  <div>O</div>
+  <div>O</div>
+  <div>G</div>
+  <div>L</div>
+  <div>E</div>
   
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.3/TweenMax.min.js"></script>
   <script>
-    TweenMax.set('div', { visibility: "visible" })
-    TweenMax.staggerFrom('div', 1, {x: 130, opacity: 0, delay: 1}, .4);
+    const elements = document.querySelectorAll('div');
+    const colors = () => {
+      const colors = ["red", "blue", "green", "yellow"];
+      const index = Math.floor(Math.random() * colors.length);
+
+      return colors[index];
+    }
+
+
+    TweenMax.set(elements, { visibility: "visible" });
+    TweenMax.staggerTo(elements, 1, { opacity: 1, color: colors }, .7);
+    TweenMax.staggerTo(elements, .3, { opacity: 0, delay: .7 }, .7);
 
   </script>
 </body>
