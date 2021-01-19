@@ -1,38 +1,37 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
   <style>
-    :root {
-      --size: 150px;
+    div {
+      width: 100px;
+      height: 100px;
+      margin: 20px;
+      background-color: cadetblue;
     }
 
-    body {
-      background-color: coral;
-    }
-
-    .ball {
-      position: absolute;
-      width: var(--size);
-      height: var(--size);
-      border-radius: 50%;
-      background-color: brown;
-      bottom: calc(100% - var(--size));
-      left: calc(50% - var(--size) / 2);
+    .e1 {
+      transform: translateX(70vw);
     }
   </style>
 </head>
+
 <body>
-  <div class="ball"></div>
+  <div class="e1"></div>
+  <div class="e2"></div>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.3/TweenMax.min.js"></script>
   <script>
-    const height = window.innerHeight - 150;
-    const ball = document.querySelector('.ball');
-    TweenMax.to(ball, 5, {y: height, ease: Bounce.easeOut });
-    TweenMax.to(ball, 2, {backgroundColor: "green", scale: 0, delay: 5});
-
+    TweenMax.from('.e1', 2, {
+      x: 0,
+      repeat: -1,
+      yoyo: true,
+      ease: Back.easeOut.config(1.7)
+    })
+    TweenMax.fromTo('.e2', 2, { y: 100}, { y: 300, repeat: -1});
   </script>
 </body>
+
 </html>
