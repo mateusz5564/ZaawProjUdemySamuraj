@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+
+  <style>
+    .rect {
+      margin: 100px;
+      width: 100px;
+      height: 100px;
+      background-color: #000;
+    }
+
+
+  </style>
+
+</head>
+<body>
+  <button>Animate</button>
+  <div class="rect"></div>
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.3/TweenMax.min.js"></script>
+  <script>
+    const rect = document.querySelector('.rect');
+    const btn = document.querySelector('button');
+    const tl = new TimelineMax({
+      repeat: -1,
+      repeatDelay: 1,
+      onStart: () => {
+        console.log("start")
+      },
+      paused: true,
+    });
+
+    tl
+      .to(rect, 1, { x: '+=200' })
+      .to(rect, 1, { y: 200 })
+      .add("half")
+      .to(rect, 1, { x: '-=200' })
+      .to(rect, 1, { y: 0 })
+      .to(rect, 1, { backgroundColor: "red" }, "half")
+
+    btn.addEventListener('click', () => {
+      
+      if(tl.paused) {
+        tl.resume();
+      } else {
+        tl.pause();
+      }
+    })
+    
+
+  </script>
+</body>
+</html>
