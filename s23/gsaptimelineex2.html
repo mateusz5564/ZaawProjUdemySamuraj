@@ -44,8 +44,9 @@
 
     btn.addEventListener('click', () => {
       
-      if(tl.paused) {
+      if(tl._paused) {
         tl.resume();
+        console.log("paused")
       } else {
         tl.pause();
       }
