@@ -5,6 +5,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=PT+Sans:wght@700&display=swap" rel="stylesheet"> 
   <style>
 
 body {
@@ -17,8 +19,8 @@ body {
 }
 
 div {
-  font-family: monospace;
-  font-size: 60px;
+  font-family: 'PT Sans', sans-serif;
+  font-size: 100px;
   font-weight: bold;
   text-align: center;
   visibility: hidden;
@@ -41,11 +43,11 @@ div {
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.3/TweenMax.min.js"></script>
   <script>
     const elements = document.querySelectorAll('div');
+    let index = 0;
     const colors = () => {
-      const colors = ["red", "blue", "green", "yellow"];
-      const index = Math.floor(Math.random() * colors.length);
+      const colors = ["blue", "red", "yellow", "blue", "green", "red"];
 
-      return colors[index];
+      return colors[index++];
     }
 
 
