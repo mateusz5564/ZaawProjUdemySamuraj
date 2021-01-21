@@ -10,6 +10,7 @@
   <link rel="stylesheet" href="style.css">
 </head>
 
+
 <body>
   <div class="robot">
     <svg id="robot" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 800">
@@ -102,6 +103,60 @@
   <div class="typing">
   </div>
   <script src="./typing.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.3/TweenMax.min.js"></script>
+
+  <script>
+
+    const randomColor = () => {
+      const colors = ["red", "yellow", "blue", "green"];
+      return colors[Math.floor(Math.random() * colors.length)];
+    }
+
+    const bars = () => {
+      const tl = new TimelineMax({ onComplete: bars });
+      const voiceBars = document.querySelector("#voice-bars");
+      const barsElements = document.querySelectorAll("#voice-bars rect");
+      const randomColor = () => {
+        const colors = ["red", "yellow", "green"];
+        return colors[Math.floor(Math.random() * colors.length)];
+      }
+      const randomScale = () => {
+        return Math.random() * 2.7 + 0.5;
+      }
+
+      tl.set(barsElements, { y: -30, transformOrigin: "50% 50%" });
+      tl.staggerTo(barsElements, .6, { fill: randomColor, scaleY: randomScale, repeat: 1, yoyo: true, ease: Bounce.easeIn }, .1);
+
+      return tl;
+    }
+
+    const blink = () => {
+      const tl = new TimelineMax({repeat: -1, repeatDelay: 3, delay: 2});
+      const eyes = document.querySelectorAll('#eye-left, #eye-right');
+      tl.set(eyes, { transformOrigin: "50% 50%" });
+      tl.to(eyes, .1, { scaleY: 0, fill: "#231f20" });
+      tl.to(eyes, .1, { scaleY: 1, fill: "#48b3e6" });
+      tl.to(eyes, .1, { scaleY: 0, fill: "#231f20" }, "+0.5");
+      tl.to(eyes, .1, { scaleY: 1, fill: "#48b3e6" });
+
+      return tl;
+    }
+
+    const move = (legs) => {
+      const tl = new TimelineMax();
+      tl.staggerTo(legs, .5, { y: -50, repeat: -1, yoyo: true, ease: Power0.easeNone }, .5);
+
+      return tl;
+    }
+
+
+    const master = new TimelineMax();
+    master.add("start")
+    master.add(bars(), "start");
+    master.add(move(document.querySelectorAll('#leg-right, #leg-left')), "start")
+    master.add(blink(), "start");
+
+  </script>
 </body>
 
 </html>
